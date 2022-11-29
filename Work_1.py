@@ -70,23 +70,30 @@
 # Пример:
 # - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
 #
-# N = int(input('Введите целое число: '))
-#
-# fib1 = 1
-# fib2 = 1
-# some_list = []
-# some_list.extend([fib1, fib2])
-#
-# for _ in range(2, N):
-#     fib1, fib2 = fib2, fib1 + fib2
-#     some_list.append(fib2)
-#
-# print(f'Список Фибоначчи: {some_list}')
-#
-# some_list2 = []
-# for i in range(len(some_list)):
-#     some_list2.append(-(some_list[-1-i]))
-# some_list2.append(0)
-# some_list2.extend(some_list)
-#
-# print(f'Список Фибоначчи с отрицательными индексами: {some_list2}')
+N = int(input('Введите целое число: '))
+
+fib1 = 1
+fib2 = 1
+some_list = []
+some_list.extend([fib1, fib2])
+
+for _ in range(2, N):
+    fib1, fib2 = fib2, fib1 + fib2
+    some_list.append(fib2)
+
+print(f'Список Фибоначчи: {some_list}')
+
+fib1 = 0
+fib2 = 1
+some_list2 = []
+some_list2.extend([fib1, fib2])
+for i in range(1, N):
+    fib1, fib2 = fib2, fib1 - fib2
+    some_list2.append(fib2)
+print(f'Список Фибоначчи отриц: {some_list2}')
+for i in range(int(len(some_list2) / 2 )):
+    if len(some_list2) % 2 != 0 or int(len(some_list2) / 2) > i:
+        some_list2[i], some_list2[-1 - i] = some_list2[-1 - i], some_list2[i]
+some_list2.extend(some_list)
+
+print(f'Список Фибоначчи с отрицательными индексами: {some_list2}')
